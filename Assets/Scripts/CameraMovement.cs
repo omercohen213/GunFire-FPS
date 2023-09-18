@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class CameraMovement : MonoBehaviour
+public class CameraMovement : NetworkBehaviour
 {
     public float _mouseSensitivity = 110f;
 
@@ -12,12 +13,18 @@ public class CameraMovement : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         Application.targetFrameRate = 60;
     }
 
     private void Update()
     {
+        if (!IsOwner)
+            return;
+
+        if (Input.GetKey(KeyCode.Q))
+            TestServerRpc();
+
         float mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * _mouseSensitivity * Time.deltaTime;
 
@@ -30,6 +37,12 @@ public class CameraMovement : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
         _playerBody.Rotate(Vector3.up * mouseX);
+    }
+
+    [ServerRpc]
+    private void TestServerRpc()
+    {
+        Debug.Log(OwnerClientId);
     }
 
 }

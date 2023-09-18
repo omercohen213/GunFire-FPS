@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     [SerializeField] CharacterController _characterController;
 
@@ -11,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (!IsOwner)
+            return;        
+
         float xMove = Input.GetAxis("Horizontal");        
         float zMove = Input.GetAxis("Vertical");
 

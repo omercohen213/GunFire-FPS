@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 5586978693045040637}
   - component: {fileID: 5586978693045040636}
   - component: {fileID: 5586978693045040638}
+  - component: {fileID: 3841666943255680612}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -130,6 +131,32 @@ MonoBehaviour:
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!114 &3841666943255680612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5586978693045040633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 0
+  SyncRotAngleZ: 1
+  SyncScaleX: 0
+  SyncScaleY: 0
+  SyncScaleZ: 0
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  InLocalSpace: 0
+  Interpolate: 1
 --- !u!1 &5586978694297755887
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +250,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5586978694305580601}
   - component: {fileID: 5586978694305580603}
-  - component: {fileID: 5586978694305580602}
   - component: {fileID: 5586978694305580604}
   m_Layer: 0
   m_Name: Camera
@@ -291,14 +317,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &5586978694305580602
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5586978694305580600}
-  m_Enabled: 1
 --- !u!114 &5586978694305580604
 MonoBehaviour:
   m_ObjectHideFlags: 0
